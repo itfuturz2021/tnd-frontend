@@ -1,0 +1,43 @@
+<div class="container-fluid mt--5">
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Inquiry Details</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th>
+                    Name
+                  </th>
+                  <th>
+                    Mobile Number
+                  </th>
+                  <th>
+                    E-Mail
+                  </th>
+                  <th>
+                    Description
+                  </th>
+                  <th>
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let e of lis">
+                  <td>{{ e.name }}</td>
+                  <td>{{ e.mobile }}</td>
+                  <td>{{ e.email }}</td>
+                  <td>{{ e.description }}</td>
+                  <td><button type="button" class="btn btn-danger" id={{e._id}} (click)="accpet(e._id)">Done</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  

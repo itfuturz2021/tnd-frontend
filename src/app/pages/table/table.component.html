@@ -1,0 +1,136 @@
+<!-- <div class="header bg-gradient-danger pb-8 pt-2 pt-md-2">
+  <div class="container-fluid">
+    <div class="header-body">
+      <section class="content-header">
+        <h3>Directory Listing</h3>
+    </section>
+    </div>
+  </div>
+</div> -->
+
+<div class="container-fluid mt--5">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Registration Details</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Mobile Number
+                </th>
+                <th>
+                  E-Mail
+                </th>
+                <th>
+                  Company - Name
+                </th>
+                <th>
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let e of lis">
+                <td>{{ e.name }}</td>
+                <td>{{ e.mobile }}</td>
+                <td>{{ e.email }}</td>
+                <td>{{ e.company_name }}</td>
+                <td><button type="button" class="btn btn-success" id={{e._id}} (click)="verifymember(e._id)">Verify</button>
+                  <button type="button" class="btn btn-danger" id={{e._id}} (click)="dellete(e._id)">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container-fluid mt--5">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Directory Listing</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover align-items-center table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Date-of-Birth
+                </th>
+                <th>
+                  Gender
+                </th>
+                <th>
+                  Address
+                </th>
+                <th>
+                  Spouse-Name
+                </th>
+                <th>
+                  Spouse-DOB
+                </th>
+                <th>
+                  No. Child
+                </th>
+                <th>
+                  Company Name
+                </th>
+                <th>
+                  Business Category
+                </th>
+                <th>
+                  Company Address
+                </th>
+                <th>
+                  About Business
+                </th>
+                <th>
+                  Membership
+                </th>
+                <th>
+                  Experience
+                </th>
+                <th>
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let e of lis">
+                <td>{{ e.name || " " }}</td>
+                <td>{{ e.date_of_birth == "undefined" ? " " : e.date_of_birth }}</td>
+                <td>{{ e.gender == "undefined" ? " " : e.gender }}</td>
+                <td>{{ e.address == "undefined" ? " " : e.address }}</td>
+                <td>{{ e.spouse_name == "undefined" ? " " : e.spouse_name }}</td>
+                <td>{{ e.spouse_birth_date == "undefined" ? " " : e.spouse_birth_date }}</td>
+                <td>{{ e.number_of_child }}</td>
+                <td>{{ e.company_name || " " }}</td>
+                <td>{{ e.business_category.categoryName || "NULL" }}</td>
+                <td>{{ e.address == "undefined" ? " " : e.address }}</td>
+                <td>{{ e.about_business == "undefined" ? " " : e.about_business }}</td>
+                <td>{{ e.memberOf.memberShipName == "null" ? " " : e.memberOf.memberShipName }}</td>
+                <td>{{ e.experience || " " }}</td>
+                <td>
+                  <button class="btn btn-primary" (click)="editt()">Edit</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

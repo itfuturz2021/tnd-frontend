@@ -1,0 +1,104 @@
+<div class="" id="page-wrapper" ng-app="myApp" ng-controller="ctrl1">
+    <div class="container-fluid">
+        <div class="row row-stat">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading panel-heading-divider" style="text-align: center; text-transform:uppercase;">
+                        <h2 style="color: lightseagreen;"><strong>Add Banner</strong></h2>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="panel-body">
+                        <div class="xs-mt-10 xs-mb-10">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <form class="form-horizontal" [formGroup]="bannerform" (ngSubmit)="saveBanner()">
+                                        <div class="form-group"> 
+                                            <div class="row">
+                                                <label class="col-sm-3 control-label" for="title"><b>TITLE</b></label>
+                                                <div class="col-sm-9">
+                                                    <input id="title" name="title" formControlName="title" [(ngModel)]="title" class="form-control input-pill" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"> 
+                                            <div class="row">
+                                                <label class="col-sm-3 control-label" for="type"><b>BANNER TYPE</b></label>
+                                                <div class="col-sm-9">
+                                                    <select id="type" class="form-control" formControlName="type" [(ngModel)]="type" name="type">
+                                                        <option value="TOP">TOP</option>
+                                                        <option value="BOTTOM">BOTTOM</option>
+                                                        <option value="OFFER">OFFER</option>
+                                                      </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="form-group"> 
+                                            <div class="row">
+                                                <label class="col-sm-3 control-label" for="image"><b>BANNER-IMAGE</b></label>
+                                                <div class="col-sm-9">
+                                                    <input id="image" name="image" formControlName="image" [(ngModel)]="image" class="" 
+                                                    type="file" accept="image/*" (change)="onChaa($event)">
+                                                    <span class="file-cta">
+                                                        <span class="file-icon">
+                                                        <i class="fa fa-upload"></i>
+                                                        </span>
+                                                        <span class="file-label">
+                                                            Choose a file…
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="text-center">
+                                            <button class="btn btn-primary" type="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><hr>
+
+<div class="container-fluid mt--5">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h3 class="mb-0">BANNERS</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover align-items-center table-flush">
+                        <thead class="thead-light text-center">
+                            <tr>
+                                <th>
+                                    Title
+                                </th>
+                                <th>
+                                    Type
+                                </th>
+                                <th>
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr *ngFor="let e of lis_banner">
+                                <td>{{ e.title }}</td>
+                                <td>{{ e.type }}</td>
+                                <td><button type="button" class="btn btn-danger" id={{e._id}} (click)="delban(e._id)">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

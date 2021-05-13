@@ -1,0 +1,217 @@
+<div class="container">
+    <form [formGroup]="offerform" novalidate
+          (ngSubmit)="onSubmit()">
+        <div class="form-group" ngbDropdown> 
+            <div class="row">
+              <label class="col-sm-3 control-label" for="businessCategory"><b>BUSINESS CATEGORY</b></label>
+              <div class="col-sm-9">
+                <select 
+                class="form-control"
+                id="businessCategory"
+                formControlName="businessCategory"
+                [(ngModel)]="businessCategory" name="businessCategory">
+                <option value="" disabled selected>Select Category</option>
+                <option *ngFor="let x of bus_category" value="{{x._id}}">{{x.categoryName}}</option>
+                </select>
+              </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group"> 
+            <div class="row">
+              <label class="col-sm-3 control-label" for="title"><b>TITLE</b></label>
+              <div class="col-sm-9">
+                <input id="title" name="title" formControlName="title" [(ngModel)]="title" class="form-control input-pill" type="text">
+              </div>
+            </div>
+        </div>
+        <div class="form-group"> 
+          <div class="row">
+            <label class="col-sm-3 control-label" for="city"><b>CITY</b></label>
+            <div class="col-sm-9">
+              <select 
+                class="form-control"
+                id="city"
+                formControlName="city"
+                name="city" required>
+                <option value="" disabled selected>select City</option>
+                <option *ngFor="let x of li_city" value="{{x._id}}">{{x.City}}</option>
+              </select>
+              <!-- <input id="city" name="city" formControlName="city" [(ngModel)]="city" class="form-control input-pill" type="text"> -->
+            </div>
+          </div>
+      </div>
+        <div class="form-group"> 
+          <div class="row">
+            <label class="col-sm-3 control-label" for="userId"><b>OFFER POSTED BY</b></label>
+            <div class="col-sm-9">
+              <select 
+                class="form-control"
+                id="userId"
+                formControlName="userId"
+                [(ngModel)]="userId" name="userId">
+                <option value="" disabled selected> Please select Name</option>
+                <option *ngFor="let x of li" value="{{x._id}}">{{x.name}}</option>
+              </select>
+            </div>
+          </div>
+      </div>
+        <br>
+        <div class="form-group"> 
+          <div class="row">
+            <label class="col-sm-3 control-label" for="bannerImage"><b>OFFER IMAGE</b></label>
+            <div class="col-sm-9">
+              <input id="bannerImage" name="bannerImage" formControlName="bannerImage" [(ngModel)]="bannerImage" class="file-input" 
+              type="file" accept="image/*" (change)="onChaa($event)">
+              <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fa fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Choose a file…
+                  </span>
+                </span>
+            </div>
+          </div>
+      </div>
+      <br>
+
+      <div class="form-group"> 
+          <div class="row">
+            <label class="col-sm-3 control-label" for="details"><b>DESCRIPTION</b></label>
+            <div class="col-sm-9">
+              <!-- <ejs-richtexteditor formControlName="details" class="form-control input-pill" type="text"></ejs-richtexteditor> -->
+              <textarea id="details" name="details" formControlName="details" [(ngModel)]="details" class="form-control input-pill" type="text" row='5' col="5"></textarea>
+            </div>
+          </div>
+      </div>
+      <br>
+        <div class="form-group"> 
+          <div class="row">
+            <label class="col-sm-3 control-label" for="dateTime"><b>Start-Date</b></label>
+            <div class="col-sm-9">
+              <input id="dateTime" name="dateTime" formControlName="dateTime" [(ngModel)]="dateTime" class="form-control input-pill" type="text">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group"> 
+            <div class="row">
+              <label class="col-sm-3 control-label" for="offerExpire"><b>EXPIRES BY</b></label>
+              <div class="col-sm-9">
+                <input id="offerExpire" name="offerExpire" formControlName="offerExpire" [(ngModel)]="offerExpire" class="form-control input-pill" type="text">
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label class="col-sm-3 control-label" for="faceBook"><b>FaceBook-URL</b></label>
+            <div class="col-sm-9">
+              <input id="faceBook" class="form-control" formControlName="faceBook" type="text" name="faceBook" [(ngModel)]="faceBook"
+                     placeholder="Enter Facebook ID">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label class="col-sm-3 control-label" for="instagram"><b>Instagram-URL</b></label>
+            <div class="col-sm-9">
+              <input id="instagram" class="form-control" formControlName="instagram" type="text" name="instagram" [(ngModel)]="instagram"
+                     placeholder="Enter Instagram ID">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label class="col-sm-3 control-label" for="mail"><b>Mail-ID</b></label>
+            <div class="col-sm-9">
+              <input id="mail" class="form-control" formControlName="mail" type="text" name="mail" [(ngModel)]="mail"
+                     placeholder="Enter mail ID">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label class="col-sm-3 control-label" for="whatsapp"><b>Whatsapp Number</b></label>
+            <div class="col-sm-9">
+              <input id="whatsApp" class="form-control" formControlName="whatsApp" type="text" name="whatsApp"
+                     placeholder="Enter Whatsapp No.">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label class="col-sm-3 control-label" for="linkedIn"><b>Linkdin-URL</b></label>
+            <div class="col-sm-9">
+              <input id="linkedIn" class="form-control" formControlName="linkedIn" type="text" name="linkedIn" [(ngModel)]="linkedIn"
+                     placeholder="Enter Linkdin ID">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label class="col-sm-3 control-label" for="twitter"><b>TWITTER-URL</b></label>
+            <div class="col-sm-9">
+              <input id="twitter" class="form-control" formControlName="twitter" type="text" name="twitter" [(ngModel)]="twitter"
+                     placeholder="Enter Twitter URL">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label class="col-sm-3 control-label" for="youTube"><b>YOUTUBE - URL</b></label>
+            <div class="col-sm-9">
+              <input id="youTube" class="form-control" formControlName="youTube" type="text" name="youTube" [(ngModel)]="youTube"
+                     placeholder="Enter Youtube Url">
+            </div>
+          </div>
+        </div>
+        <br>
+        
+        <div align="center">    
+          <button type="submit"
+            class="btn btn-primary">SUBMIT
+          </button>
+        </div>
+    </form> 
+</div><hr><br>
+
+<div class="container-fluid mt--5">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">All OFFERS</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-hover table-bordered align-items-center table-flush">
+            <thead class="thead-light text-center">
+              <tr>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Details</th>
+                <th>Start-Date</th>
+                <!-- <th>Days Remaing</th> -->
+                <th>Expires By</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <tr *ngFor="let e of lis_offer">
+                <td>{{ e.title }}</td>
+                <td>{{ e.businessCategory.categoryName }}</td>
+                <td>{{ e.details }}</td>
+                <td>{{ e.dateTime }}</td>
+                <!-- <td>{{ e.daysRemain }}</td> -->
+                <td>{{ e.offerExpire }}</td>
+                <td><button type="button" class="btn btn-danger" id={{e._id}} (click)="dellete(e._id)">Delete</button><br>
+                  <button type="button" class="btn btn-success" id={{e._id}} (click)="edit(e._id)">Edit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

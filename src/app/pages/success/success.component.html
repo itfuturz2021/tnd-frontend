@@ -1,0 +1,141 @@
+<div class="container">
+    <form [formGroup]="successform" novalidate
+          (ngSubmit)="onSubmit()">
+    
+        <div class="form-group" ngbDropdown> 
+            <div class="row">
+                <label class="col-sm-3 control-label" for="headline"><b>HEADLINE</b></label>
+                <div class="col-sm-9">
+                    <input id="headline" name="headline" formControlName="headline" [(ngModel)]="headline" class="form-control input-pill" type="text">
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="form-group"> 
+            <div class="row">
+              <label class="col-sm-3 control-label" for="storyContent"><b>STORY-CONTENT</b></label>
+              <div class="col-sm-9">
+                <!-- <ejs-richtexteditor formControlName="storyContent" class="form-control input-pill" type="text"></ejs-richtexteditor> -->
+                <textarea id="storyContent" name="storyContent" formControlName="storyContent" [(ngModel)]="storyContent" class="form-control input-pill" row='5' col="5" type="text"></textarea>
+              </div>
+            </div>
+        </div>
+        <br>
+
+            <div class="form-group"> 
+                <div class="row">
+                  <label class="col-sm-3 control-label" for="storyImage"><b>OFFER IMAGE</b></label>
+                  <div class="col-sm-9">
+                    <input id="storyImage" name="storyImage" formControlName="storyImage" [(ngModel)]="storyImage" class="file-input" 
+                    type="file" accept="image/*" (change)="onChaa($event)">
+                    <span class="file-cta">
+                        <span class="file-icon">
+                          <i class="fa fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                          Choose a file…
+                        </span>
+                      </span>
+                  </div>
+                </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <label class="col-sm-3 control-label" for="faceBook"><b>FaceBook-URL</b></label>
+                <div class="col-sm-9">
+                  <input id="faceBook" class="form-control" formControlName="faceBook" type="text" name="faceBook" [(ngModel)]="faceBook"
+                         placeholder="Enter Facebook ID">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <label class="col-sm-3 control-label" for="instagram"><b>Instagram-URL</b></label>
+                <div class="col-sm-9">
+                  <input id="instagram" class="form-control" formControlName="instagram" type="text" name="instagram" [(ngModel)]="instagram"
+                         placeholder="Enter Instagram ID">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <label class="col-sm-3 control-label" for="whatsapp"><b>Whatsapp Number</b></label>
+                <div class="col-sm-9">
+                  <input id="whatsApp" class="form-control" formControlName="whatsApp" type="text" name="whatsApp" [(ngModel)]="whatsApp"
+                         placeholder="Enter Whatsapp No.">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <label class="col-sm-3 control-label" for="linkedIn"><b>Linkdin-URL</b></label>
+                <div class="col-sm-9">
+                  <input id="linkedIn" class="form-control" formControlName="linkedIn" type="text" name="linkedIn" [(ngModel)]="linkedIn"
+                         placeholder="Enter Linkdin ID">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <label class="col-sm-3 control-label" for="twitter"><b>TWITTER-URL</b></label>
+                <div class="col-sm-9">
+                  <input id="twitter" class="form-control" formControlName="twitter" type="text" name="twitter" [(ngModel)]="twitter"
+                         placeholder="Enter Twitter URL">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <label class="col-sm-3 control-label" for="youTube"><b>YOUTUBE - URL</b></label>
+                <div class="col-sm-9">
+                  <input id="youTube" class="form-control" formControlName="youTube" type="text" name="youTube" [(ngModel)]="youTube"
+                         placeholder="Enter Youtube Url">
+                </div>
+              </div>
+            </div>
+            <br>
+        
+            <div align="center">    
+            <button type="submit"
+                    class="btn btn-primary">SUBMIT
+            </button>
+        </div>
+    </form> 
+</div>
+<br><hr>
+
+<div class="container-fluid mt--5">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Success Stories</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover align-items-center table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th class="text-center">Headline</th>
+                <th style="size: 50px;" class="text-center">Content</th>
+                <th class="text-center">Date</th>
+                <th class="text-center">Time</th>
+                <th class="text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let e of lis_success">
+                <td>{{ e.headline }}</td>
+                <td>{{ e.storyContent }}</td>
+                <td>{{ e.date }}</td>
+                <td>{{ e.time }}</td>
+                <td><button type="button" class="btn btn-success" id={{e._id}} (click)="edit(e._id)">Edit</button>
+                  <button type="button" class="btn btn-danger" id={{e._id}} (click)="delstory(e._id)">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

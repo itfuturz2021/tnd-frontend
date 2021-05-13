@@ -1,0 +1,399 @@
+<div class="" id="page-wrapper" ng-app="myApp" ng-controller="ctrl1">
+    <div class="container-fluid">
+      <div class="row row-stat">
+        <div class="col-sm-12">
+          <div class="panel panel-default">
+            <div class="panel-heading panel-heading-divider" style="text-align: center; text-transform:uppercase;">
+              <h2 style="color: lightseagreen;"><strong>Peronal Information</strong></h2>
+            </div>
+            <br>
+            <br>
+            <div class="panel-body">
+              <div class="xs-mt-10 xs-mb-10">
+                <div class="row">
+                  <div class="col-md-8">
+                    <form class="form-horizontal" [formGroup]="form1" (ngSubmit) = "onsubb()">
+                      <!-- <div class="form-group"> 
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="id">NAME *</label>
+                          <div class="col-sm-9">
+                            <select 
+                              class="form-control"
+                              id="id"
+                              formControlName="id"
+                              name="id" required>
+                              <option *ngFor="let x of li" value="{{x._id}}" (click)="edit(x._id)">{{x.name}}</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div> -->
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="name">NAME *</label>
+                          <div class="col-sm-9">
+                            <input id="name" class="form-control" formControlName="name" [(ngModel)]="name" type="text" name="name"
+                                required  placeholder="Enter Name">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="mobile">MOBILE *</label>
+                          <div class="col-sm-9">
+                            <input id="mobile" class="form-control" formControlName="mobile" type="text" [(ngModel)]="mobile" name="mobile"
+                                   placeholder="Enter Mobile" required >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="email">E-MAIL *</label>
+                          <div class="col-sm-9">
+                            <input id="email" class="form-control" formControlName="email" type="text" name="email" [(ngModel)]="email"
+                                   placeholder="Enter Email" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="company_name">COMPANY NAME*</label>
+                          <div class="col-sm-9">
+                            <input id="company_name" class="form-control" formControlName="company_name" type="text" name="company_name" [(ngModel)]="company_name"
+                                   placeholder="Enter Company Name" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="company_website">COMPANY WEBSITE</label>
+                          <div class="col-sm-9">
+                            <input id="company_website" name="company_website" formControlName="company_website" class="form-control" type="text" [(ngModel)]="company_website">
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="referred_by">REFERRED BY</label>
+                          <div class="col-sm-9">
+                            <input id="referred_by" class="form-control" formControlName="referred_by" type="text" name="referred_by" [(ngModel)]="referred_by"
+                                   placeholder="Referres By">
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group"> 
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="img">IMAGE</label>
+                          <div class="col-sm-9">
+                            <input id="img" name="img" formControlName="img" [(ngModel)]="img" class="" 
+                            type="file" accept="image/*" (change)="onChaa($event)">
+                            <span class="file-cta">
+                              <span class="file-icon">
+                                <i class="fa fa-upload"></i>
+                                <!-- <fa-icon [icon]="['fas', 'upload']"></fa-icon> -->
+                              </span>
+                              <span class="file-label">
+                                Choose a file…
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="ismember">Is - Member</label>
+                          <div class="col-sm-9">
+                            <input id="ismember" (click)="onset()" name="ismember" formControlName="ismember" [(ngModel)]="ismember" class="form-control" type="checkbox">
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="date_of_birth">DATE OF BIRTH</label>
+                          <div class="col-sm-9">
+                            <input id="date_of_birth" name="date_of_birth" formControlName="date_of_birth" [(ngModel)]="date_of_birth" class="form-control input-pill" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="gender">GENDER</label>
+                          <div class="col-sm-9">
+                            <select id="gender" class="form-control" formControlName="gender" [(ngModel)]="gender" name="gender">
+                              <option value="Male">MALE</option>
+                              <option value="Female">FEMALE</option>
+                              <option value="Other">OTHER</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="address">ADDRESS</label>
+                          <div class="col-sm-9">
+                            <input id="address" class="form-control" formControlName="address" type="text" name="address" [(ngModel)]="address"
+                                   placeholder="enter address">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="faceBook">FACEBOOK-URL</label>
+                          <div class="col-sm-9">
+                            <input id="faceBook" class="form-control" formControlName="faceBook" type="text" name="faceBook" [(ngModel)]="faceBook"
+                                   placeholder="Enter Facebook ID">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="instagram">INSTAGRAM-URL</label>
+                          <div class="col-sm-9">
+                            <input id="instagram" class="form-control" formControlName="instagram" type="text" name="instagram" [(ngModel)]="instagram"
+                                   placeholder="Enter Instagram ID">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="whatsapp">WHATSAPP NUMBER</label>
+                          <div class="col-sm-9">
+                            <input id="whatsApp" class="form-control" formControlName="whatsApp" type="text" name="whatsApp" [(ngModel)]="whatsApp"
+                                   placeholder="Enter Whatsapp No.">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="linkedIn">LINKDIN-URL</label>
+                          <div class="col-sm-9">
+                            <input id="linkedIn" class="form-control" formControlName="linkedIn" type="text" name="linkedIn" [(ngModel)]="linkedIn"
+                                   placeholder="Enter Linkdin ID">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="twitter">TWITTER-URL</label>
+                          <div class="col-sm-9">
+                            <input id="twitter" class="form-control" formControlName="twitter" type="text" name="twitter" [(ngModel)]="twitter"
+                                   placeholder="Enter Twitter URL">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="youTube">YOUTUBE-URL</label>
+                          <div class="col-sm-9">
+                            <input id="youTube" class="form-control" formControlName="youTube" type="text" name="youTube" [(ngModel)]="youTube"
+                                   placeholder="Enter Youtube Url">
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="spouse_name">SPOUSE NAME</label>
+                          <div class="col-sm-9">
+                            <input id="spouse_name" class="form-control" formControlName="spouse_name" type="text" name="spouse_name" [(ngModel)]="spouse_name"
+                                   placeholder="enter name">
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="spouse_birth_date">SPOUSE D.O.B</label>
+                          <div class="col-sm-9">
+                            <input id="spouse_birth_date" name="spouse_birth_date" formControlName="spouse_birth_date" class="form-control" type="date" [(ngModel)]="spouse_birth_date">
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="number_of_child">NO. OF CHILD*</label>
+                          <div class="col-sm-9">
+                            <input id="number_of_child" name="number_of_child" formControlName="number_of_child" class="form-control" type="number" [(ngModel)]="number_of_child" required default=0>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="business_category">BUSINESS CATEGORY*</label>
+                          <div class="col-sm-9">
+                            <select 
+                              class="form-control"
+                              id="business_category"
+                              formControlName="business_category"
+                              [(ngModel)]="business_category" name="business_category" required>
+                              <option value="" disabled selected> Please select Business Category</option>
+                              <option *ngFor="let x of bus_category" value="{{x._id}}">{{x.categoryName}}</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="company_address">COMPANY ADDRESS</label>
+                          <div class="col-sm-9">
+                            <input id="company_address" name="company_address" formControlName="company_address" class="form-control" type="text" [(ngModel)]='company_address'>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="about_business">ABOUT BUSINESS</label>
+                          <div class="col-sm-9">
+                            <input id="about_business" name="about_business" formControlName="about_business" class="form-control" type="text" [(ngModel)]="about_business">
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="memberOf">MEMBER SHIP NAME*</label>
+                          <div class="col-sm-9">
+                            <select 
+                              class="form-control"
+                              id="memberOf"
+                              formControlName="memberOf"
+                              ng-model="memberOf" required>
+                              <option value="" disabled selected> Please select Category</option>
+                              <option *ngFor="let x of li_mem" value="{{x._id}}">{{x.memberShipName}}</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="keyword">KEYWORD</label>
+                          <div class="col-sm-9">
+                            <input id="keyword" name="keyword" formControlName="keyword" class="form-control" type="text" [(ngModel)]="keyword">
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="experience">EXPERIENCE</label>
+                          <div class="col-sm-9">
+                            <input id="experience" name="experience" formControlName="experience" class="form-control" type="text" [(ngModel)]='experience'>
+                          </div>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="text-center">
+                        <button class="btn btn-danger" type="submit">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<br>
+<br>
+
+<div class="container-fluid mt--5">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Directory Listing</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover align-items-center table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Date-of-Birth
+                </th>
+                <th>
+                  Gender
+                </th>
+                <th>
+                  Address
+                </th>
+                <th>
+                  Spouse-Name
+                </th>
+                <th>
+                  Spouse-DOB
+                </th>
+                <th>
+                  No. Child
+                </th>
+                <th>
+                  Company Name
+                </th>
+                <!-- <th>
+                  Company Website
+                </th> -->
+                <th>
+                  Business Category
+                </th>
+                <th>
+                  Company Address
+                </th>
+                <th>
+                  About Business
+                </th>
+                <th>
+                  Membership
+                </th>
+                <!-- <th>
+                  Keywords
+                </th> -->
+                <th>
+                  Experience
+                </th>
+                <th>
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let e of lis">
+                <td>{{ e.name || " " }}</td>
+                <td>{{ e.date_of_birth == "undefined" ? " " : e.date_of_birth }}</td>
+                <td>{{ e.gender == "undefined" ? " " : e.gender }}</td>
+                <td>{{ e.address == "undefined" ? " " : e.address }}</td>
+                <td>{{ e.spouse_name == "undefined" ? " " : e.spouse_name }}</td>
+                <td>{{ e.spouse_birth_date == "undefined" ? " " : e.spouse_birth_date }}</td>
+                <td>{{ e.number_of_child }}</td>
+                <td>{{ e.company_name || " " }}</td>
+                <!-- <td>{{ e.company_website || " " }}</td> -->
+                <td>{{ e.business_category.categoryName || "NULL" }}</td>
+                <td>{{ e.address == "undefined" ? " " : e.address }}</td>
+                <td>{{ e.about_business == "undefined" ? " " : e.about_business }}</td>
+                <td>{{ e.memberOf.memberShipName == "null" ? " " : e.memberOf.memberShipName }}</td>
+                <!-- <td>{{ e.keyword }}</td> -->
+                <td>{{ e.experience || " " }}</td>
+                <td>
+                  <button class="btn btn-primary" (click)="edit(e._id)">Edit</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
