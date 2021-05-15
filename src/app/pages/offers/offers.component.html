@@ -3,21 +3,35 @@
           (ngSubmit)="onSubmit()">
         <div class="form-group" ngbDropdown> 
             <div class="row">
-              <label class="col-sm-3 control-label" for="businessCategory"><b>BUSINESS CATEGORY</b></label>
+              <label class="col-sm-3 control-label" for="Mastercategory"><b>MASTER CATEGORY</b></label>
               <div class="col-sm-9">
                 <select 
                 class="form-control"
-                id="businessCategory"
-                formControlName="businessCategory"
-                [(ngModel)]="businessCategory" name="businessCategory">
+                id="Mastercategory"
+                formControlName="Mastercategory"
+                [(ngModel)]="Mastercategory" name="Mastercategory">
                 <option value="" disabled selected>Select Category</option>
-                <option *ngFor="let x of bus_category" value="{{x._id}}">{{x.categoryName}}</option>
+                <option *ngFor="let x of master_category" value="{{x._id}}">{{x.CategoryName}}</option>
                 </select>
               </div>
             </div>
         </div>
         <br>
-
+        <div class="form-group" ngbDropdown> 
+          <div class="row">
+            <label class="col-sm-3 control-label" for="subcategory"><b>SUB-CATEGORY</b></label>
+            <div class="col-sm-9">
+              <select 
+              class="form-control"
+              id="subcategory"
+              formControlName="subcategory"
+              [(ngModel)]="subcategory" name="subcategory">
+              <option value="" disabled selected>Select Category</option>
+              <option *ngFor="let x of sub_category" value="{{x._id}}">{{x.CategoryName}}</option>
+              </select>
+            </div>
+          </div>
+      </div>
         <div class="form-group"> 
             <div class="row">
               <label class="col-sm-3 control-label" for="title"><b>TITLE</b></label>
@@ -189,7 +203,8 @@
             <thead class="thead-light text-center">
               <tr>
                 <th>Title</th>
-                <th>Type</th>
+                <th>Master Category</th>
+                <th>Sub-Category</th>
                 <th>Details</th>
                 <th>Start-Date</th>
                 <!-- <th>Days Remaing</th> -->
@@ -200,7 +215,8 @@
             <tbody class="text-center">
               <tr *ngFor="let e of lis_offer">
                 <td>{{ e.title }}</td>
-                <td>{{ e.businessCategory.categoryName }}</td>
+                <td>{{ e.Mastercategory.CategoryName }}</td>
+                <td>{{ e.subcategory.CategoryName }}</td>
                 <td>{{ e.details }}</td>
                 <td>{{ e.dateTime }}</td>
                 <!-- <td>{{ e.daysRemain }}</td> -->

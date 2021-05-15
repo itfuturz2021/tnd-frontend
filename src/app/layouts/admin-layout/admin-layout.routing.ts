@@ -18,24 +18,28 @@ import { MembershipComponent } from 'app/pages/membership/membership.component';
 import { InquiryComponent }  from 'app/pages/inquiry/inquiry.component';
 import { NotifyComponent } from 'app/pages/notify/notify.component';
 import { EpaperComponent } from 'app/pages/epaper/epaper.component';
+import { SubcategoryComponent} from 'app/pages/subcategory/subcategory.component';
+import { MastercategoryComponent } from 'app/pages/mastercategory/mastercategory.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user',           component: UserComponent },
     { path: 'table',          component: TableComponent },
-    { path: 'login',          component: LoginComponent },
-    { path: 'forms',          component: FormsComponent },
+    // { path: 'login',          component: LoginComponent },
+    // { path: 'forms',          component: FormsComponent },
     { path: 'register',       component: RegisterComponent },
     { path: 'news',           component: NewsComponent },
     { path: 'category',       component: CategoryComponent },
     { path: 'offers',         component: OffersComponent },
-    { path: 'banner',         component: BannerComponent },
+    // { path: 'banner',         component: BannerComponent },
     { path: 'events',         component: EventsComponent },
     { path: 'success',         component: SuccessComponent },
-    { path: 'featured',         component: FeaturedComponent },
+    // { path: 'featured',         component: FeaturedComponent },
     { path: 'membership',           component: MembershipComponent },
-    { path: 'business-category',    component:BusinessCategoryComponent },
-    { path: 'inquiry' ,             component : InquiryComponent},
+    // { path: 'business-category',    component:BusinessCategoryComponent },
+    { path : 'mastercategory', component:MastercategoryComponent},
+    { path: 'subcategory',    component:SubcategoryComponent },
+    // { path: 'inquiry' ,             component : InquiryComponent},
     { path : 'notify' ,             component : NotifyComponent},
     { path : 'epaper',              component : EpaperComponent}
 ];

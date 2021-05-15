@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <div class="row row-stat">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-heading-divider" style="text-align: center; text-transform:uppercase;">
+                    <h2 style="color: lightseagreen;"><strong>ADD SUB-CATEGORY</strong></h2>
+                </div>
+                <br>
+                <br>
+                <form class="form-horizontal" [formGroup]="subcatform"  (ngSubmit) = "onsubmitt()">
+                    <div class="form-group"> 
+                        <div class="row">
+                            <label class="col-sm-3 control-label" for="CategoryName"><b>SUB-CATEGORY NAME</b></label>
+                            <div class="col-sm-9">
+                                <input id="CategoryName" name="CategoryName" formControlName="CategoryName" [(ngModel)]="CategoryName" class="form-control input-pill" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                          <label class="col-sm-3 control-label" for="MastercategoryId"><b>MASTER-CATEGORY*</b></label>
+                          <div class="col-sm-9">
+                            <select 
+                              class="form-control"
+                              id="MastercategoryId"
+                              formControlName="MastercategoryId"
+                              name="MastercategoryId" required>
+                              <option value="" disabled selected>select Mastercategory</option>
+                              <option *ngFor="let x of li_master" value="{{x._id}}">{{x.CategoryName}}</option>
+                            </select>
+                          </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <button class="btn btn-primary" value="Reset" type="submit">Add SUB-CATEGORY</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br><hr>
+
+<div class="container-fluid mt--5">
+    <div class="row">
+        <div class="col">
+            <div class="card shadow">
+                <div class="card-header border-0">
+                    <h3 class="mb-0">All Sub-category</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light text-center">
+                            <tr>
+                                <th>
+                                    Sub-category Name
+                                </th>
+                                <th>
+                                    Mastercategory Name
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr *ngFor="let e of li_subcatdata">
+                                <td>{{ e.CategoryName }}</td>
+                                <td>{{ e.Mastercategory == "606d900c31e1410f9c8e9ea2" ? "B2B" : "B2C" }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

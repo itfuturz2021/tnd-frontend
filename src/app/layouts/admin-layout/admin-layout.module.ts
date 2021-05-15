@@ -16,15 +16,17 @@ import { LoginComponent }             from '../../pages/login/login.component';
 import { NewsComponent }              from '../../pages/news/news.component';
 import { CategoryComponent }          from '../../pages/category/category.component';
 import { OffersComponent }            from '../../pages/offers/offers.component';
-import { BannerComponent }            from '../../pages/banner/banner.component';
+// import { BannerComponent }            from '../../pages/banner/banner.component';
 import { EventsComponent }            from '../../pages/events/events.component';
 import { SuccessComponent }           from '../../pages/success/success.component';
 import { BusinessCategoryComponent }  from '../../pages/business-category/business-category.component';
-import { FeaturedComponent }           from '../../pages/featured/featured.component';
+// import { FeaturedComponent }           from '../../pages/featured/featured.component';
 import { MembershipComponent }           from '../../pages/membership/membership.component';
-import { InquiryComponent }           from '../../pages/inquiry/inquiry.component';
+// import { InquiryComponent }           from '../../pages/inquiry/inquiry.component';
 import { NotifyComponent }            from '../../pages/notify/notify.component';
 import { EpaperComponent }            from '../../pages/epaper/epaper.component';
+import { SubcategoryComponent }       from '../../pages/subcategory/subcategory.component';
+import { MastercategoryComponent }       from '../../pages/mastercategory/mastercategory.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -46,16 +48,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     RegisterComponent,
     NewsComponent,
-    InquiryComponent,
+    // InquiryComponent,
     CategoryComponent,
     OffersComponent,
     NotifyComponent,
-    BannerComponent,
+    // BannerComponent,
     EventsComponent,
     MembershipComponent,
     SuccessComponent,
-    FeaturedComponent,
+    // FeaturedComponent,
     BusinessCategoryComponent,
+    MastercategoryComponent,
+    SubcategoryComponent,
     EpaperComponent,
   ]
 })

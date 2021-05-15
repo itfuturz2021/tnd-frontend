@@ -36,10 +36,14 @@ export class OffersComponent implements OnInit {
   city;
   new_data;
   offer_id;
+  Mastercategory;
+  subcategory;
   resdata;
   update = false;
   fd = new FormData();
   li_city;
+  master_category;
+  sub_category;
 
   selectedFile:File = null;
   offerform :FormGroup;
@@ -50,7 +54,9 @@ export class OffersComponent implements OnInit {
     if(this.update == false){
       console.log("1");
       this.fd.append('title',this.offerform.get('title').value);
-      this.fd.append('businessCategory',this.offerform.get('businessCategory').value);
+      // this.fd.append('businessCategory',this.offerform.get('businessCategory').value);
+      this.fd.append('Mastercategory',this.offerform.get('Mastercategory').value);
+      this.fd.append('subcategory',this.offerform.get('subcategory').value);
       // this.fd.append('bannerImage',this.offerform.get('bannerImage').value);
       this.fd.append('details',this.offerform.get('details').value);
       this.fd.append('dateTime',this.offerform.get('dateTime').value);
@@ -73,7 +79,9 @@ export class OffersComponent implements OnInit {
     else {
       var x={
         "id" : this.offer_id,
-        "businessCategory" : this.offerform.get('businessCategory').value,
+        // "businessCategory" : this.offerform.get('businessCategory').value,
+        "Mastercategory" : this.offerform.get('Mastercategory').value,
+        "subcategory" : this.offerform.get('subcategory').value,
         "title" : this.offerform.get('title').value,
         "bannerImage" : this.fd.get("bannerImage"),
         "details" : this.offerform.get('details').value,
@@ -122,7 +130,9 @@ export class OffersComponent implements OnInit {
       this.dateTime = this.new_data[0].dateTime;
       this.offer_id = this.new_data[0]._id;
       console.log(this.offer_id);
-      this.businessCategory = this.new_data[0].businessCategory;
+      // this.businessCategory = this.new_data[0].businessCategory;
+      this.Mastercategory = this.new_data[0].Mastercategory;
+      this.subcategory = this.new_data[0].subcategory;
       this.bannerImage = this.new_data[0].bannerImage;
       this.city = this.new_data[0].city;
       this.details = this.new_data[0].details;
@@ -140,10 +150,21 @@ export class OffersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.httpClient.post('http://15.207.46.236/admin/businessCategory',null)
+    // this.httpClient.post('http://15.207.46.236/admin/businessCategory',null)
+    // .subscribe(data => {
+    //   this.bus_category=data['Data'];
+    // });
+
+    this.httpClient.post('http://15.207.46.236/admin/getallMasterCategory',null)
     .subscribe(data => {
-      this.bus_category=data['Data'];
+      this.master_category=data['Data'];
     });
+
+    this.httpClient.post('http://15.207.46.236/admin/getallSubcategory',null)
+    .subscribe(data => {
+      this.sub_category=data['Data'];
+    });
+
 
     this.httpClient.post("http://15.207.46.236/admin/getallcity",null)
       .subscribe((Response:any) =>{
@@ -153,6 +174,8 @@ export class OffersComponent implements OnInit {
       this.offerform = this.formbuilder.group({
         title:[''],
         businessCategory:[''],
+        Mastercategory:[''],
+        subcategory:[''],
         bannerImage:[''],
         details:[''],
         dateTime:[''],
@@ -175,6 +198,7 @@ export class OffersComponent implements OnInit {
 
       this.httpClient.post('http://15.207.46.236/admin/getOffer',"5fa64917d805f94e21b84579")
       .subscribe(Response => {
+        // console.log(Response);
         this.lis_offer = Response["Data"];
       })
   }

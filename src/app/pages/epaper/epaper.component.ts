@@ -39,7 +39,7 @@ export class EpaperComponent implements OnInit{
       
       this.epaperform = this.formbuilder.group({
         title:[''],
-        image:[''],
+        // image:[''],
         pdfUrl:[''],
       });
     }
