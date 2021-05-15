@@ -15,6 +15,8 @@ export class MastercategoryComponent implements OnInit{
     li_subcatdata;
 
     mastercatform :FormGroup;
+    CategoryName;
+    
 
     constructor(private httpClient : HttpClient,private router: Router,private formbuilder : FormBuilder) {}
 

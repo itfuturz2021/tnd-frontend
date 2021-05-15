@@ -14,6 +14,8 @@ export class SubcategoryComponent implements OnInit{
   
     li_master;
     li_subcatdata;
+    CategoryName;
+    MastercategoryId;
 
     subcatform :FormGroup;
 
